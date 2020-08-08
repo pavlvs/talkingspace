@@ -1,91 +1,174 @@
 <?php include 'includes/header.inc.php' ?>
 
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">Lots of PHP love</h1>
-      <p class="lead my-3">PHP News, tutorials, videos & more...</p>
-      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
-    </div>
-  </div>
+<!doctype html>
+<html lang="en">
 
-  <div class="row mb-2">
-    <div class="col-md-6">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">World</strong>
-          <h3 class="mb-0">Featured post</h3>
-          <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="stretched-link">Continue reading</a>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.4/examples/starter-template/">
+
+    <title>Talking Space</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/custom.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.php">TalkingSpace</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="register.php">Create An Account</a></li>
+                    <li><a href="create.php">Create Topic</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="main-col">
+                    <div class="block">
+                        <h1 class="pull-left">Welcome to TalkingSpace</h1>
+                        <h4 class="pull-right">A simple PHP forum engine.</h4>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <ul id="topics">
+                            <li class="topic">
+                                <div class="row">
+                                    <div class="col-md-2"><img src="assets/images/gravatar.jpg" alt="" class="avatar pull-left"></div>
+                                    <div class="col-md-10">
+                                        <div class="topic-content pull-right">
+                                            <h3><a href="topic.php">How did you learn CSS and HtML</a></h3>
+                                            <div class="topic-info"><a href="category.php">Development</a> >> <a href="profile.php">Py Thonsucks</a> >> Posted on: June 12, 2014 <span class="badge pull-right">3</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic">
+                                <div class="row">
+                                    <div class="col-md-2"><img src="assets/images/gravatar.jpg" alt="" class="avatar pull-left"></div>
+                                    <div class="col-md-10">
+                                        <div class="topic-content pull-right">
+                                            <h3><a href="topic.php">How to create new page dynamically in php</a></h3>
+                                            <div class="topic-info"><a href="category.php">Development</a> >> <a href="profile.php">Matt Noruby</a> >> Posted on: June 12, 2014 <span class="badge pull-right">3</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic">
+                                <div class="row">
+                                    <div class="col-md-2"><img src="assets/images/gravatar.jpg" alt="" class="avatar pull-left"></div>
+                                    <div class="col-md-10">
+                                        <div class="topic-content pull-right">
+                                            <h3><a href="topic.php">Google Panda - Who's affected?</a></h3>
+                                            <div class="topic-info"><a href="category.php">Search Engines</a> >> <a href="profile.php">Joe Javablows</a> >> Posted on: June 12, 2014 <span class="badge pull-right">3</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="topic">
+                                <div class="row">
+                                    <div class="col-md-2"><img src="assets/images/gravatar.jpg" alt="" class="avatar pull-left"></div>
+                                    <div class="col-md-10">
+                                        <div class="topic-content pull-right">
+                                            <h3><a href="topic.php">Is Css3 is not working in IE8 and IE9?</a> </h3>
+                                            <div class="topic-info"><a href="category.php">Search Engines</a> >> <a href="profile.php">Joe Javablows</a> >> Posted on: June 12, 2014 <span class="badge pull-right">3</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="topic">
+                                <div class="row">
+                                    <div class="col-md-2"><img src="assets/images/gravatar.jpg" alt="" class="avatar pull-left"></div>
+                                    <div class="col-md-10">
+                                        <div class="topic-content pull-right">
+                                            <h3><a href="topic.php">Best Web Application Frameworks</a></h3>
+                                            <div class="topic-info"><a href="category.php">Design</a> >> <a href="profile.php">Joe Javablows</a> >> Posted on: June 12, 2014 <span class="badge pull-right">3</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <h3>Forum Statistics</h3>
+                        <ul>
+                            <li>Total Number of Users:<strong>52</strong></li>
+                            <li>Total Number of Topics:<strong>10</strong></li>
+                            <li>Total Number of Categories:<strong>5</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="sidebar">
+                    <div class="block">
+                        <h3>Login Form</h3>
+                        <form>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                            </div>
+
+                            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div class="block">
+                        <h3>Categories</h3>
+                        <div class="list-group">
+                            <a href="" class="list-group-item active">All Topics<span class="badge pull-right">14</span></a>
+                            <a href="" class="list-group-item">Design<span class="badge pull-right">4</span></a>
+                            <a href="" class="list-group-item">Development<span class="badge pull-right">9</span></a>
+                            <a href="" class="list-group-item">Business & Marketing<span class="badge pull-right">12</span></a>
+                            <a href="" class="list-group-item">Search Engines<span class="badge pull-right">7</span></a>
+                            <a href="" class="list-group-item">Cloud Hosting</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Design</strong>
-          <h3 class="mb-0">Post title</h3>
-          <div class="mb-1 text-muted">Nov 11</div>
-          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="stretched-link">Continue reading</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<main role="main" class="container">
-  <div class="row">
-    <div class="col-md-8 blog-main">
-      <h3 class="pb-4 mb-4 font-italic border-bottom">
-        From the Firehose
-      </h3>
+    </div><!-- /.container -->
 
-      <div class="blog-post">
-        <h2 class="blog-post-title">International PHP Conference</h2>
-        <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
 
-        <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
-        <hr>
-        <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-        <blockquote>
-          <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        </blockquote>
-        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-        
-        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-        
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        
-        <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-        
-        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        
-        <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
-		
-		<a class="readmore" href="post.php?id=1">Read more</a>
-      </div><!-- /.blog-post -->
-	 	  
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="assets/js/bootstrap.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
 
-      <div class="blog-post">
-        <h2 class="blog-post-title">PHP 5.6beta Released</h2>
-        <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
+</html>
 
-        <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-        <blockquote>
-          <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        </blockquote>
-        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-		
-		<a class="readmore" href="post.php?id=2">Read more</a>
-      </div><!-- /.blog-post -->
-	
-	<?php include 'includes/footer.inc.php' ?>
-
+<?php include 'includes/footer.inc.php' ?>
