@@ -63,9 +63,17 @@
                         <div class="clearfix"></div>
                         <hr>
                         <ul id="topics">
-                            <li class="topic">
+                            <li id="main-topic" class="topic">
                                 <div class="row">
-                                    <div class="col-md-2"><img src="assets/images/gravatar.jpg" alt="" class="avatar pull-left"></div>
+                                    <div class="col-md-2">
+                                        <div class="user-info">
+                                            <img src="assets/images/gravatar.jpg" alt="" class="avatar pull-left"></div>
+                                        <ul>
+                                            <li><strong>Py Thon Sucks</strong></li>
+                                            <li>11 Posts</li>
+                                            <li><a href="#">View Topics</a></li>
+                                        </ul>
+                                    </div>
                                     <div class="col-md-10">
                                         <div class="topic-content pull-right">
                                             <h3><a href="topic.php">How did you learn CSS and HtML</a></h3>
@@ -133,7 +141,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div id="sidebar">
+                <div class="sidebar">
                     <div class="block">
                         <h3>Login Form</h3>
                         <form>
