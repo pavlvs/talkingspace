@@ -2,10 +2,13 @@
 
 <?php
 
+$title = 'Welcome to TalkingSpace';
 
 $topic = new Topic();
 
 $template = new Template('templates/homepage.php');
+
+$template->title = $title;
 
 $template->topics = $topic->getAllTopics();
 $template->totalUsers = $topic->getTotals('users');

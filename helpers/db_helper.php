@@ -20,3 +20,12 @@ function getCategories()
     $resultset = $db->resultset();
     return $resultset;
 }
+
+function getCategoryId()
+{
+    if (isset($_GET['category'])) {
+        $categoryId = $_GET['category'];
+        return $categoryId;
+    }
+    return false;
+}

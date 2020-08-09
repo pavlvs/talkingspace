@@ -56,7 +56,7 @@
             <div class="col-md-8">
                 <div class="main-col">
                     <div class="block">
-                        <h1 class="pull-left">Welcome to TalkingSpace</h1>
+                        <h1 class="pull-left"><?= $title ?></h1>
                         <h4 class="pull-right">A simple PHP forum engine.</h4>
                         <div class="clearfix"></div>
                         <hr>
