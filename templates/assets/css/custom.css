@@ -36,12 +36,12 @@ h3 {
   background: none !important;
 }
 .navbar-brand {
-  /* padding: 10px 0 0 0; */
+  padding: 10px 0 0 0;
   color: white;
 }
-/* .navbar-nav > li > a { */
-/* padding: 10px 10px 0 10px; */
-/* } */
+.navbar-nav > li > a {
+  padding: 10px 10px 0 10px;
+}
 
 .block {
   background: #ffffff;

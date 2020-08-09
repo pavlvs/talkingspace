@@ -21,12 +21,15 @@
         <div class="block">
             <h3>Categories</h3>
             <div class="list-group">
-                <a href="" class="list-group-item active">All Topics<span class="badge pull-right">14</span></a>
-                <a href="" class="list-group-item">Design<span class="badge pull-right">4</span></a>
-                <a href="" class="list-group-item">Development<span class="badge pull-right">9</span></a>
-                <a href="" class="list-group-item">Business & Marketing<span class="badge pull-right">12</span></a>
-                <a href="" class="list-group-item">Search Engines<span class="badge pull-right">7</span></a>
-                <a href="" class="list-group-item">Cloud Hosting</a>
+                <a href="topics.php" class="list-group-item active">All Categories</a>
+                <?php $categories = getCategories(); ?>
+                <?php if ($categories) : ?>
+                    <?php foreach ($categories as $category) : ?>
+                        <a href="topics.php?category=<?= $category->id ?>" class="list-group-item"><?= $category->name ?></a>
+                    <?php endforeach; ?>
+                <?php else : ?>
+                    <p>There are no categories yet.</p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
