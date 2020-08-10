@@ -1,5 +1,8 @@
 <?php include 'includes/header.php' ?>
 <ul id="topics">
+
+    <!-- Main Topic -->
+
     <li id="main-topic" class="topic">
         <div class="row">
             <div class="col-md-2">
@@ -28,6 +31,9 @@
             </div>
         </div>
     </li>
+
+    <!-- Replies -->
+
     <?php if ($replies) : ?>
         <?php foreach ($replies as $reply) : ?>
             <li class="topic">

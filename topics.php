@@ -5,6 +5,7 @@
 $topic = new Topic();
 
 $category = $_GET["category"] ?? null;
+$user = $_GET["user"] ?? null;
 
 $template = new Template('templates/topics.php');
 
@@ -12,6 +13,10 @@ if ($category) {
     $template->categoryId = $topic->getCategoryId();
     $template->title = 'Topics in ' . $topic->getCategoryById()->name;
     $template->topics = $topic->getTopicsByCategory();
+} elseif ($user) {
+    // $template->userId = $topic->getUserId();
+    $template->title = 'Topics by ' . $topic->getUserById()->username;
+    $template->topics = $topic->getTopicsByUser();
 } else {
     $template->title = ' All Topics';
     $template->topics = $topic->getAllTopics();

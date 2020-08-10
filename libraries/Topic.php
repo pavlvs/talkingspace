@@ -4,12 +4,14 @@ class Topic
     private $db;
     private $categoryId;
     private $topicId;
+    private $userId;
 
     public function __construct()
     {
         $this->db = new Database();
         $this->setCategoryId();
         $this->setTopicId();
+        $this->setUserId();
     }
 
     public function getAllTopics()
@@ -45,6 +47,26 @@ class Topic
         ORDER BY t.create_date DESC";
 
         $this->db->query($sql);
+        $resultset = $this->db->resultset();
+        return $resultset;
+    }
+
+    public function getTopicsByUser()
+    {
+        $sql = "SELECT t.*,
+         u.username AS username,
+         u.avatar AS avatar,
+         c.name AS category
+        FROM topics AS t
+        INNER JOIN categories AS c
+        ON t.category_id = c.id
+        INNER JOIN users as u
+        ON t.user_id = u.id
+        WHERE t.user_id = :userId
+        ORDER BY t.create_date DESC";
+
+        $this->db->query($sql);
+        $this->db->bind(':userId', $this->userId);
         $resultset = $this->db->resultset();
         return $resultset;
     }
@@ -95,6 +117,16 @@ class Topic
         return $record;
     }
 
+
+    function getUserById()
+    {
+        $sql = "SELECT *
+                FROM users
+                WHERE id = $this->userId";
+        $this->db->query($sql);
+        $user = $this->db->single();
+        return $user;
+    }
     public function getTotalTopics()
     {
         $sql = 'SELECT * FROM topics';
@@ -145,8 +177,20 @@ class Topic
         }
     }
 
+    function setUserId()
+    {
+        if (isset($_GET['user'])) {
+            $this->userId = $_GET['user'];
+        }
+    }
+
     function getCategoryId()
     {
         return $this->categoryId;
+    }
+
+    function getuserId()
+    {
+        return $this->userId;
     }
 }

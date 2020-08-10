@@ -1,5 +1,4 @@
 <?php include 'includes/header.php'; ?>
-<?= 'the category id is: ' . getCategoryId() ?>
 <ul id="topics">
     <?php if ($topics) : ?>
         <?php foreach ($topics as $topic) : ?>
@@ -15,11 +14,13 @@
                                 <a href="topics.php?category=<?= urlFormat($topic->category_id) ?>">
                                     <?= $topic->category ?>
                                 </a> >>
-                                <a href="topics.php?user=3">
+                                <a href="topics.php?user=<?= $topic->user_id ?>">
                                     <?= $topic->username ?>
                                 </a> >> Posted on:
                                 <?= formatDate($topic->create_date) ?>
-                                <span class="badge pull-right"><?= replyCount($topic->id) ?></span>
+                                <span class="badge pull-right">
+                                    <?= replyCount($topic->id) ?>
+                                </span>
                             </div>
                         </div>
                     </div>
