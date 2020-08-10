@@ -83,6 +83,14 @@ h3 {
   width: 100%;
 }
 
+.topic-info {
+  font-size: 12px;
+}
+
+.topic-body {
+  margin-top: 10px;
+}
+
 img.avatar {
   width: 100%;
 }

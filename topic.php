@@ -4,12 +4,18 @@
 
 $topic = new Topic();
 
+$topicId = $_GET["id"] ?? null;
+
 $template = new Template('templates/ftopic.php');
 
-$template->topics = $topic->getAllTopics();
-$template->totalUsers = $topic->getTotals('users');
-$template->totalCategories = $topic->getTotals('categories');
-$template->totalTopics = $topic->getTotals('topics');
-$template->totalReplies = $topic->getTotalReplies(1);
+if ($topicId) {
+    $template->topicId = $topicId;
+    //$template->title = $topic->getTopicById()->category;
+    $template->topic = $topic->getTopicById();
+}
+
+$template->userId = $topic->getTopicById()->user_id;
+$template->totalReplies = $topic->getTotalReplies();
+$template->replies = $topic->getReplies();
 
 echo $template;

@@ -3,11 +3,13 @@ class Topic
 {
     private $db;
     private $categoryId;
+    private $topicId;
 
     public function __construct()
     {
         $this->db = new Database();
         $this->setCategoryId();
+        $this->setTopicId();
     }
 
     public function getAllTopics()
@@ -47,6 +49,52 @@ class Topic
         return $resultset;
     }
 
+    public function getReplies()
+    {
+        $sql = "SELECT r.*,
+         u.*
+         FROM replies AS r
+         INNER JOIN users AS u
+         ON r.user_id = u.id
+         WHERE r.topic_id = 1
+         ORDER BY create_date ASC";
+
+        $this->db->query($sql);
+
+        $this->db->bind(':topicId', $this->topicId);
+        $resultset = $this->db->resultset();
+        return $resultset;
+    }
+
+    function getCategoryById()
+    {
+        $sql = "SELECT *
+                FROM categories
+                WHERE id = $this->categoryId";
+        $this->db->query($sql);
+        $category = $this->db->single();
+        return $category;
+    }
+
+    public function getTopicById()
+    {
+        $sql = "SELECT t.*,
+         u.id AS userId,
+         u.username AS username,
+         u.avatar AS avatar,
+         c.name AS category
+        FROM topics AS t
+        INNER JOIN categories AS c
+        ON t.category_id = c.id
+        INNER JOIN users as u
+        ON t.user_id = u.id
+        WHERE t.id = $this->topicId";
+
+        $this->db->query($sql);
+        $record = $this->db->single();
+        return $record;
+    }
+
     public function getTotalTopics()
     {
         $sql = 'SELECT * FROM topics';
@@ -54,6 +102,7 @@ class Topic
         $rows = $this->db->resultset();
         return $this->db->rowCount();
     }
+
 
     public function getTotalCategories()
     {
@@ -63,11 +112,13 @@ class Topic
         return $this->db->rowCount();
     }
 
-    public function getTotalReplies($topicId)
+    public function getTotalReplies()
     {
         $sql = "SELECT * FROM replies
-                WHERE topic_id = $topicId";
+                WHERE topic_id = :topicId";
         $this->db->query($sql);
+
+        $this->db->bind(':topicId', $this->topicId);
         $rows = $this->db->resultset();
         return $this->db->rowCount();
     }
@@ -87,18 +138,15 @@ class Topic
         }
     }
 
+    function setTopicId()
+    {
+        if (isset($_GET['id'])) {
+            $this->topicId = $_GET['id'];
+        }
+    }
+
     function getCategoryId()
     {
         return $this->categoryId;
-    }
-
-    function getCategoryById()
-    {
-        $sql = "SELECT *
-                FROM categories
-                WHERE id = $this->categoryId";
-        $this->db->query($sql);
-        $category = $this->db->single();
-        return $category;
     }
 }

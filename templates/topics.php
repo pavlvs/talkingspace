@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-md-10">
                         <div class="topic-content pull-right">
-                            <h3><a href="topic.php"><?= $topic->title ?></a></h3>
+                            <h3><a href="topic.php?id=<?= $topic->id ?>"><?= $topic->title ?></a></h3>
                             <div class="topic-info">
                                 <a href="topics.php?category=<?= urlFormat($topic->category_id) ?>">
                                     <?= $topic->category ?>
