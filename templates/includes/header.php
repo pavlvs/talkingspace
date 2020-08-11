@@ -27,9 +27,7 @@
 </head>
 
 <body>
-    <?php
-    $title = $title ?? SITE_TITLE;
-    ?>
+    <?php $title = $title ?? SITE_TITLE; ?>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">

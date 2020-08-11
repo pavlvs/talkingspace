@@ -1,12 +1,14 @@
  <?php
-
     function redirect($page = FALSE, $message = NULL, $messageType = NULL)
     {
+        $location = '';
         if (is_string($page)) {
             $location = $page;
         } else {
             $location = $_SERVER["SCRIPT_NAME"];
         }
+        // echo "deed is done and we are going to " . $location;
+        // exit();
 
         // check for message
         if ($message != NULL) {
@@ -20,7 +22,7 @@
         }
 
         // redirect
-        header('Location: ' . $location);
+        header("Location: $location");
         exit;
     }
 

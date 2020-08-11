@@ -1,6 +1,5 @@
-<?php include 'core/init.php' ?>
-
 <?php
+require_once 'core/init.php';
 //create topic object
 $topic = new Topic();
 
@@ -8,7 +7,7 @@ $topic = new Topic();
 $user = new User();
 
 if (isset($_POST['register'])) {
-    // crate data array
+    // create data array
     $data = [];
     $data['name'] = $_POST['name'];
     $data['email'] = $_POST['email'];
@@ -22,10 +21,15 @@ if (isset($_POST['register'])) {
     if ($user->uploadAvatar()) {
         $data['avatar'] = $_FILES['avatar']['name'];
     } else {
-        $data['avater'] = 'noimage.jpg';
+        $data['avatar'] = 'noimage.jpg';
+    }
+    // register the user
+    if ($user->register($data)) {
+        redirect('index.php', 'You are registered and can now log in.', 'success');
+    } else {
+        redirect('register.php', 'Something went wrong with registration', 'error');
     }
 }
-
 
 $template = new Template('templates/register.php');
 

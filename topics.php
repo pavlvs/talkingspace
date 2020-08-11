@@ -1,6 +1,5 @@
-<?php include 'core/init.php' ?>
-
 <?php
+require_once 'core/init.php';
 
 $topic = new Topic();
 
