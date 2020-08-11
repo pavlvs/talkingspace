@@ -75,4 +75,45 @@ class User
             return true;
         }
     }
+
+    public function login($un, $pw)
+    {
+        $sql = "SELECT *
+                FROM users
+                WHERE username = :username
+                AND `password` = :password";
+
+        $this->db->query($sql);
+
+        $this->db->bind(':username', $un);
+        $this->db->bind(':password', $pw);
+        $this->db->execute();
+
+        $row = $this->db->single();
+        if ($row) {
+            $this->setUserData($row);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function logout()
+    {
+        unset($_SESSION['isLoggedIn']);
+        unset($_SESSION['userId']);
+        unset($_SESSION['username']);
+        unset($_SESSION['name']);
+
+        redirect('index.php', 'You have been logged out', 'success');
+        session_destroy();
+    }
+
+    public function setUserData($row)
+    {
+        $_SESSION['isLoggedIn'] = true;
+        $_SESSION['userId'] = $row->id;
+        $_SESSION['username'] = $row->username;
+        $_SESSION['name'] = $row->name;
+    }
 }

@@ -50,3 +50,24 @@
             echo '';
         }
     }
+
+    function isLoggedIn()
+    {
+        if (isset($_SESSION['isLoggedIn'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function isActiveCategory($category)
+    {
+        if (
+            isset($_GET['category'])
+            && $_GET['category'] == $category
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
