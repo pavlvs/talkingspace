@@ -6,6 +6,8 @@ $topic = new Topic();
 //create user object
 $user = new User();
 
+$validate = new Validator();
+
 if (isset($_POST['register'])) {
     // create data array
     $data = [];
@@ -17,17 +19,29 @@ if (isset($_POST['register'])) {
     $data['about'] = $_POST['about'];
     $data['lastActivity'] = date('Y-m-d H:i:s');
 
-    // upload avatar
-    if ($user->uploadAvatar()) {
-        $data['avatar'] = $_FILES['avatar']['name'];
+    // validate form data
+    $requiredFields = ['name', 'email', 'username', 'password1', 'password2'];
+
+    if (!$validate->isRequired($requiredFields)) {
+        redirect('register.php', 'Please complete all required fields.', 'error');
+    } elseif (!$validate->isValidEmail($data['email'])) {
+        redirect('register.php', 'Please provide a valid email address', 'error');
+    } elseif (!$validate->passwordsMatch($data['password1'], $data['password2'])) {
+        redirect('register.php', 'Passwords do not match.', 'error');
     } else {
-        $data['avatar'] = 'noimage.jpg';
-    }
-    // register the user
-    if ($user->register($data)) {
-        redirect('index.php', 'You are registered and can now log in.', 'success');
-    } else {
-        redirect('register.php', 'Something went wrong with registration', 'error');
+        // All clear
+        // upload avatar
+        if ($user->uploadAvatar()) {
+            $data['avatar'] = $_FILES['avatar']['name'];
+        } else {
+            $data['avatar'] = 'noimage.jpg';
+        }
+        // register the user
+        if ($user->register($data)) {
+            redirect('index.php', 'You are registered and can now log in.', 'success');
+        } else {
+            redirect('register.php', 'Something went wrong with registration', 'error');
+        }
     }
 }
 
