@@ -67,13 +67,15 @@
     <?php endif; ?>
 
 </ul>
-<h3>Reply To Topic</h3>
-<form action="" method="post">
-    <div class="form-group">
-        <textarea name="reply" id="reply" cols="80" rows="10"></textarea>
-        <script>
-            CKEDITOR.replace('reply');
-        </script>
-    </div>
-</form>
+<?php if (isLoggedIn()) : ?>
+    <h3>Reply To Topic</h3>
+    <form action="" method="post">
+        <div class="form-group">
+            <textarea name="reply" id="reply" cols="80" rows="10"></textarea>
+            <script>
+                CKEDITOR.replace('reply');
+            </script>
+        </div>
+    </form>
+<?php endif; ?>
 <?php include 'includes/footer.php' ?>

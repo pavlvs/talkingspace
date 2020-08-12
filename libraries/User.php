@@ -12,6 +12,14 @@ class User
         $this->db = new Database;
     }
 
+    public function getTotalUsers()
+    {
+        $sql = 'SELECT * FROM users';
+        $this->db->query($sql);
+        $rows = $this->db->resultset();
+        return $this->db->rowCount();
+    }
+
     /*
      * Register User
      */

@@ -88,7 +88,7 @@ class Topic
         return $resultset;
     }
 
-    function getCategoryById()
+    public function getCategoryById()
     {
         $sql = "SELECT *
                 FROM categories
@@ -118,7 +118,7 @@ class Topic
     }
 
 
-    function getUserById()
+    public function getUserById()
     {
         $sql = "SELECT *
                 FROM users
@@ -163,34 +163,54 @@ class Topic
         return $this->db->rowCount();
     }
 
-    function setCategoryId()
+    private function setCategoryId()
     {
         if (isset($_GET['category'])) {
             $this->categoryId = $_GET['category'];
         }
     }
 
-    function setTopicId()
+    private function setTopicId()
     {
         if (isset($_GET['id'])) {
             $this->topicId = $_GET['id'];
         }
     }
 
-    function setUserId()
+    private function setUserId()
     {
         if (isset($_GET['user'])) {
             $this->userId = $_GET['user'];
         }
     }
 
-    function getCategoryId()
+    public function getCategoryId()
     {
         return $this->categoryId;
     }
 
-    function getuserId()
+    public function getuserId()
     {
         return $this->userId;
+    }
+
+    public function addTopic($data)
+    {
+        $sql = "INSERT INTO topics (category_id, user_id, title, body, last_activity)
+        VALUES (:category, :user, :title, :body, :lastActivity)";
+
+        $this->db->query($sql);
+
+        $this->db->bind(':category', $data['category']);
+        $this->db->bind(':user', $data['user']);
+        $this->db->bind(':title', $data['title']);
+        $this->db->bind(':body', $data['body']);
+        $this->db->bind(':lastActivity', $data['lastActivity']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
