@@ -74,12 +74,15 @@ class Topic
     public function getReplies()
     {
         $sql = "SELECT r.*,
+         t.user_id,
          u.*
          FROM replies AS r
+         INNER JOIN topics AS t
+         ON r.topic_id = t.id
          INNER JOIN users AS u
          ON r.user_id = u.id
-         WHERE r.topic_id = 1
-         ORDER BY create_date ASC";
+         WHERE r.topic_id = $this->topicId
+         ORDER BY r.create_date ASC";
 
         $this->db->query($sql);
 
@@ -116,7 +119,6 @@ class Topic
         $record = $this->db->single();
         return $record;
     }
-
 
     public function getUserById()
     {
@@ -194,7 +196,7 @@ class Topic
         return $this->userId;
     }
 
-    public function addTopic($data)
+    public function create($data)
     {
         $sql = "INSERT INTO topics (category_id, user_id, title, body, last_activity)
         VALUES (:category, :user, :title, :body, :lastActivity)";
@@ -206,6 +208,24 @@ class Topic
         $this->db->bind(':title', $data['title']);
         $this->db->bind(':body', $data['body']);
         $this->db->bind(':lastActivity', $data['lastActivity']);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function reply($data)
+    {
+        $sql = "INSERT INTO replies (topic_id, user_id, body)
+        VALUES (:topic, :user, :body)";
+
+        $this->db->query($sql);
+
+        $this->db->bind(':topic', $data['topicId']);
+        $this->db->bind(':user', $data['userId']);
+        $this->db->bind(':body', $data['body']);
 
         if ($this->db->execute()) {
             return true;

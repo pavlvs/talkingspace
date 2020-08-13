@@ -69,12 +69,16 @@
 </ul>
 <?php if (isLoggedIn()) : ?>
     <h3>Reply To Topic</h3>
-    <form action="" method="post">
+    <form action="topic.php" method="post">
+        <input type="hidden" name="topicId" value="<?= $_GET['id'] ?>">
         <div class="form-group">
-            <textarea name="reply" id="reply" cols="80" rows="10"></textarea>
+            <textarea name="body" id="body" cols="80" rows="10"></textarea>
             <script>
-                CKEDITOR.replace('reply');
+                CKEDITOR.replace('body');
             </script>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-default" name="doReply" value="Reply">
         </div>
     </form>
 <?php endif; ?>
