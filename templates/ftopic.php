@@ -67,8 +67,9 @@
     <?php endif; ?>
 
 </ul>
+<h3>Reply To Topic</h3>
+<br>
 <?php if (isLoggedIn()) : ?>
-    <h3>Reply To Topic</h3>
     <form action="topic.php" method="post">
         <input type="hidden" name="topicId" value="<?= $_GET['id'] ?>">
         <div class="form-group">
@@ -81,5 +82,7 @@
             <input type="submit" class="btn btn-default" name="doReply" value="Reply">
         </div>
     </form>
+<?php else : ?>
+    <p>Please log in to reply</p>
 <?php endif; ?>
 <?php include 'includes/footer.php' ?>
